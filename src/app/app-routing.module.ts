@@ -5,11 +5,11 @@ import { ProductDetailsComponent } from './product/product-details/product-detai
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { LogInComponent } from './user/log-in/log-in.component';
-
+import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: ProductListComponent },
+  { path: '', redirectTo: '/products', pathMatch: 'full' },
+  { path: 'products', component: ProductListComponent },
   { path: 'cart', component:CartDetailsComponent  },
   { path: 'detail/:id', component:ProductDetailsComponent },
   { path: 'SignIn', component:SignInComponent },
