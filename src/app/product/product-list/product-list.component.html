@@ -1,1 +1,13 @@
-<p>product-list works!</p>
+
+
+<div class="bande"> CHECK OUT OUR PRODUCTS</div>
+<div class="ListPorducts">
+
+  <div class="cardslayout mat-elevation-z4" *ngFor="let product of products" fxFlex="calc(50% - 16px)">
+    <app-product-card  [name]=product.name
+    [price]=product.price
+    [id]=product.id
+
+    ></app-product-card>
+  </div>
+</div>

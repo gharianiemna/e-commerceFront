@@ -5,15 +5,20 @@ import { ProductDetailsComponent } from './product/product-details/product-detai
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { LogInComponent } from './user/log-in/log-in.component';
-import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
+import { AddProductComponent } from './product/add-product/add-product.component';
+import { AuthService as Auth } from './services/auth.service';
+
 
 const routes: Routes = [
-  { path: '', redirectTo: '/products', pathMatch: 'full' },
-  { path: 'products', component: ProductListComponent },
-  { path: 'cart', component:CartDetailsComponent  },
-  { path: 'detail/:id', component:ProductDetailsComponent },
+  
+  { path: 'products', component: ProductListComponent,canActivate: [Auth]  },
+  { path: 'cart', component:CartDetailsComponent,canActivate: [Auth]   },
+  { path: 'detail/:id', component:ProductDetailsComponent,canActivate: [Auth]  },
   { path: 'SignIn', component:SignInComponent },
-  { path: 'LogIn', component:LogInComponent },
+  { path: 'logIn', component:LogInComponent },
+  {path:'addNewProduct', component:AddProductComponent,   data: { 
+    expectedRole: "ROLE_ADMIN"},canActivate: [Auth] },
+  { path: '**', redirectTo: '/products', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -10,9 +10,12 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class UserService {
 
-  constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {
-    // SignIn(userInput:FormGroup):Observable<any>{
+  constructor(private http: HttpClient) {
 
-    // }
    }
+   getUserName():Observable<any>
+   {
+     return this.http.get<any>('http://localhost:8000/api/userName/');
+   }
+
 }

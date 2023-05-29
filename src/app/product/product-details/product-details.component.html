@@ -1,1 +1,10 @@
 <p>product-details works!</p>
+<div class="cardslayout mat-elevation-z4" *ngIf="details" fxFlex="calc(50% - 16px)">
+  <app-product-card-details   
+  [name]=details[0].name
+  [price]=details[0].price
+  [quantity]=details[0].quantity
+  [reference]=details[0].reference
+  >
+
+</app-product-card-details>
